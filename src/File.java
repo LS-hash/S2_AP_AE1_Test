@@ -8,14 +8,13 @@ public class File implements Component {
     private int count;
 
     private boolean fileExists;
-    private ArrayList<Component> files;
+
 
     public File(String name, int size) {
         this.name = name;
         this.size = size;
         this.count = count;
         this.fileExists = fileExists;
-        this.files = new ArrayList<Component>();
     }
 
     public String getName() {
@@ -30,51 +29,18 @@ public class File implements Component {
         return count;
     }
 
-    //    public String display(String prefix) {
-//        String fileInfo = name + ", " + size;
-//        return fileInfo;
-//    }
     public String display(String prefix) {
-        String fileDisplay = name;
-        for (Component a : files) {
-            fileDisplay = String.valueOf(a);
-        }
-        return fileDisplay;}
-
-    public boolean FileExists(String prefix) {
-        for (Component file : files) {
-            if (file.getName().equals(name))
-                return fileExists;
-        }
-        return true; }
-
-    public Component search(String name){ //instanceof
-        for (Component file : files) {
-            if (file.getName().equals(name))
-                return file;
-        }
+        String fileDisplay = "";
+        fileDisplay = prefix+this.getName()+"("+this.getSize()+")"+"\n"+"("+this.getCount()+")"+"\n";
+        return fileDisplay;
+    }
+    public Component search(String name){
+    if (this.getName().equals(name))
+        return this;
         return null;
     }
-//    public void add(Component a){
-//        files.add(a);
-//    }
-//    public void remove(Component a){
-//        files.remove(a);
-//    }
-
-//    public Component search(String name){ //instanceof
-//        for (Component file : files) {
-//            if (file.getName().equals(name))
-//                return file;
-//        }
-//        return null;
-//    }
-
-
         public String toString () {
             return name;
         }
-
-
     }
 
